@@ -5,8 +5,15 @@
 
 .inner {
   display: grid;
-  grid-template-columns: minmax(240px, 0.8fr) minmax(350px, 1.2fr);
-  gap: 80px 120px;
+  grid-template-columns: minmax(300px, 0.85fr) minmax(400px, 1.15fr);
+  align-items: start;
+  gap: clamp(60px, 10vw, 130px);
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 55px;
 }
 
 .heading h2 {
@@ -19,15 +26,39 @@
   line-height: 1.02;
 }
 
-.content {
-  max-width: 650px;
+.photo {
+  position: relative;
 
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+
+  background: var(--subtle);
+  overflow: hidden;
+}
+
+.photoImage {
+  object-fit: cover;
+  object-position: center top;
+
+  filter: saturate(0.92);
+  transition:
+    transform 600ms cubic-bezier(0.2, 0.7, 0.2, 1),
+    filter 300ms ease;
+}
+
+.photo:hover .photoImage {
+  transform: scale(1.025);
+  filter: saturate(1);
+}
+
+.content {
   color: var(--muted);
   font-size: 1.05rem;
   line-height: 1.75;
 }
 
-.content p {
+.content > p {
   margin: 0 0 24px;
 }
 
@@ -39,18 +70,17 @@
 }
 
 .details {
-  grid-column: 1 / -1;
+  display: flex;
+  flex-direction: column;
+  gap: 42px;
 
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 50px;
-
-  padding-top: 50px;
+  margin-top: 65px;
+  padding-top: 45px;
   border-top: 1px solid var(--border);
 }
 
 .detailGroup h3 {
-  margin: 0 0 24px;
+  margin: 0 0 20px;
 
   color: var(--muted);
   font-size: 0.75rem;
@@ -76,15 +106,14 @@
   border-radius: 999px;
 
   background: var(--background);
+  color: var(--foreground);
   font-size: 0.86rem;
+  line-height: 1.4;
 }
 
 .detailGroup p {
-  max-width: 310px;
+  max-width: 390px;
   margin: 0;
-
-  color: var(--muted);
-  line-height: 1.7;
 }
 
 .detailGroup a {
@@ -99,14 +128,24 @@
 @media (max-width: 800px) {
   .inner {
     grid-template-columns: 1fr;
-    gap: 48px;
+    gap: 55px;
+  }
+
+  .left {
+    gap: 40px;
+  }
+
+  .photo {
+    max-width: 560px;
   }
 
   .details {
-    grid-column: auto;
-    grid-template-columns: 1fr;
-    gap: 45px;
+    margin-top: 50px;
+  }
+}
 
-    padding-top: 40px;
+@media (max-width: 520px) {
+  .photo {
+    aspect-ratio: 4 / 5;
   }
 }
