@@ -29,8 +29,8 @@ export default function Hero() {
             ease: "easeOut",
           }}
         >
-          I build digital experiences that help{" "}
-          <span>businesses stand out.</span>
+          Complexity is easy. Simplicity is hard.
+          <span> I build the latter.</span>
         </motion.h1>
 
         <motion.div
@@ -44,7 +44,7 @@ export default function Hero() {
           }}
         >
           <p className={styles.introduction}>
-            I&apos;m Hussein Karaki, a web developer and co-founder of{" "}
+            I&apos;m Hussein Karaki, a web developer and co-founder of {" "}
             <a
               href="https://ahlaweb.com"
               target="_blank"
@@ -52,8 +52,7 @@ export default function Hero() {
             >
               AhlaWeb
             </a>
-            . I create modern websites, e-commerce platforms and interactive
-            web experiences.
+           . I partner with businesses to engineer high-performing web solutions, e-commerce platforms, and seamless interactive experiences.
           </p>
 
           <div className={styles.actions}>
